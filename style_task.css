@@ -1,0 +1,62 @@
+body, html{
+    height: 100%;
+    margin:0;
+}
+.main{
+    background-image: url("forestbridge.jpg");
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.logo{
+    height: 20%;
+    display: flex;
+    justify-content: flex-start;
+
+}
+.logo h1, .bottom p{
+    color: white;
+    padding-left: 3%;
+    font-family: 'Courier New', Courier, monospace;
+    
+}   
+.middle{
+ height: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   
+}
+.middle hr{
+    color: white;
+    width: 40%;
+}
+.middle h1{
+    padding-top: 10%;
+    color:white ;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.middle p{
+    color:white ;
+    font-family: 'Courier New', Courier, monospace;
+}
+.middle p{
+    color:white ;
+    font-family: 'Courier New', Courier, monospace;
+}
+.bottom{
+  height: 20%;
+  display: flex;
+  align-items:flex-end;
+}
+.bottom p{
+    color: white;
+    padding-left: 3%;
+    font-family: 'Courier New', Courier, monospace;
+   
+   
+} 
+
+
+
