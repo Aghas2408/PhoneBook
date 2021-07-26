@@ -8,7 +8,6 @@ namespace task2
 {
     interface IShape
     {
-        string KeyWord { get; set; }
         void Draw(int i, int j);
     }
 }

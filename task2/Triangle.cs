@@ -9,10 +9,12 @@ namespace task2
 {
     public class Triangle : Shape
     {
+        private const int TriangleSize = 10;
+        private const int MinDistanceFromRightSide = 10;
         public override void Draw(int w, int h)
         {
             Console.SetCursorPosition(w, h);
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < TriangleSize; i++)
             {
                 for (int j = 0; j < (w - i); j++)
                     Console.Write(" ");
@@ -46,7 +48,7 @@ namespace task2
                 }
                 else if (input.Key == ConsoleKey.A || input.Key == ConsoleKey.LeftArrow)
                 {
-                    if (ConsoleHost.left - 10 >= 0)
+                    if (ConsoleHost.left - MinDistanceFromRightSide >= 0)
                     {
                         ConsoleHost.left -= 1;
                         Console.Clear();
@@ -55,7 +57,7 @@ namespace task2
                 }
                 else if (input.Key == ConsoleKey.D || input.Key == ConsoleKey.RightArrow)
                 {
-                    if (ConsoleHost.left + 10 < Console.WindowWidth)
+                    if (ConsoleHost.left + MinDistanceFromRightSide < Console.WindowWidth)
                     {
                         ConsoleHost.left += 1;
                         Console.Clear();

@@ -27,7 +27,7 @@ namespace task2
                     Console.Clear();
                     ChangeConsoleColor obj = new ChangeConsoleColor();
                     obj.ChangeColor(inputColor);
-                    shapeIndex = Validator.shapes.IndexOf(input);
+                    shapeIndex = Validator.shapes.IndexOf(input.ToLower());
                     shapes[shapeIndex].Draw(left,top);
                     shapes[shapeIndex].Move();
                 }

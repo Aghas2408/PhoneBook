@@ -15,7 +15,7 @@ namespace task2
         };
         public static bool ValidateFirstInput(string s)
         {
-            return shapes.Contains(s);
+            return shapes.Contains(s.ToLower());
         }
         public static bool ValidateColorInput(string s)
         {
