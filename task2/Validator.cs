@@ -8,20 +8,18 @@ namespace task2
 {
     static class Validator
     {
-       
-        public static bool validateFirstInput(string s)
+        public static List<string> shapes = new List<string>()
         {
-            if (s.ToLower() == "rectangle" || s.ToLower() == "triangle")
-                return true;
-            else
-                return false;
+            "rectangle",
+            "triangle",
+        };
+        public static bool ValidateFirstInput(string s)
+        {
+            return shapes.Contains(s);
         }
-        public static bool validateColorInput(string s)
+        public static bool ValidateColorInput(string s)
         {
-            if (Colors.drawColors.Contains(s))
-                return true;
-            else
-                return false;
+            return Colors.drawColors.Contains(s);
         }
     }
 }

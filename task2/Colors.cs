@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace task2
 {
-    static class Colors
+    public static class Colors
     {
-        static public List<string> drawColors = new List<string>()
+        public static List<string> drawColors = new List<string>()
         {
             "White",
             "Blue",
@@ -24,16 +24,15 @@ namespace task2
             "Silver"
         };
 
-       public  static void DisplayColors()
+        public static void DisplayColors()
         {
             Console.WriteLine("What Color do you like to use for shape ?");
             Console.WriteLine("You can choose one of these");
-            foreach(string s in drawColors)
+            foreach (string s in drawColors)
             {
                 Console.Write(s + " ");
             }
             Console.WriteLine();
-
         }
     }
 }

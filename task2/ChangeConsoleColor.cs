@@ -7,11 +7,18 @@ using task2.Interfaces;
 
 namespace task2
 {
-    class ChangeConsoleColor : IChangeColor
+    public class ChangeConsoleColor : IChangeColor
     {
+        ConsoleColor col;
         public void ChangeColor(string inputColor)
         {
-            Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), inputColor, true);
+            if(Enum.TryParse(inputColor, true,out col))
+            {
+                if (Enum.IsDefined(typeof(ConsoleColor), col))
+                {
+                    Console.ForegroundColor = col;
+                }
+            }
         }
     }
 }

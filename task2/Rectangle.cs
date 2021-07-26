@@ -7,17 +7,17 @@ using task2.Interfaces;
 
 namespace task2
 {
-    class Rectangle : IShape, IMovable
+    public class Rectangle : Shape
     {
-        const string FirstCorner = "╔";
-        const string SecondCorner = "╗";
-        const string ThirdCorner = "╚";
-        const string FourthCorner = "╝";
-        const string HorizontalElement = "=";
-        const string VerticalElement = "║";
-        public void Draw(int w, int h)
+        private const string FirstCorner = "╔";
+        private const string SecondCorner = "╗";
+        private const string ThirdCorner = "╚";
+        private const string FourthCorner = "╝";
+        private const string HorizontalElement = "═";
+        private const string VerticalElement = "║";
+        public override void Draw(int w, int h)
         {
-            Console.SetCursorPosition(w,h);
+            Console.SetCursorPosition(w, h);
             string s = FirstCorner;
             string space = "";
             string first_space = "";
@@ -27,47 +27,44 @@ namespace task2
                 s += HorizontalElement;
             }
 
-            for (int i = 0; i <w; i++)
+            for (int i = 0; i < w; i++)
             {
-  
                 first_space += " ";
-
             }
-         
+
             s += SecondCorner + "\n";
 
             for (int i = 0; i < 5; i++)
-                s += first_space +VerticalElement + space + VerticalElement + "\n";
+            {
+                s += first_space + VerticalElement + space + VerticalElement + "\n";
+            }
 
-            s +=  first_space + ThirdCorner;
+            s += first_space + ThirdCorner;
+
             for (int i = 0; i < 5; i++)
-                s += "═";
+            {
+                s += HorizontalElement;
+            }
 
             s += FourthCorner + "\n";
-
-
             Console.Write(s);
-
-
         }
 
-        public void Move()
+        public override void Move()
         {
             while (true)
             {
                 var input = Console.ReadKey();
-                if (input.Key == ConsoleKey.W )
+                if (input.Key == ConsoleKey.W || input.Key == ConsoleKey.UpArrow)
                 {
-                    
-                    if(ConsoleHost.top-1 >= 0)
+                    if (ConsoleHost.top - 1 >= 0)
                     {
                         ConsoleHost.top -= 1;
                         Console.Clear();
                         Draw(ConsoleHost.left, ConsoleHost.top);
                     }
-
                 }
-                if (input.Key == ConsoleKey.S)
+                else if (input.Key == ConsoleKey.S || input.Key == ConsoleKey.DownArrow)
                 {
                     if (ConsoleHost.top + 1 <= Console.WindowHeight)
                     {
@@ -76,7 +73,7 @@ namespace task2
                         Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
-                if (input.Key == ConsoleKey.A)
+                else if (input.Key == ConsoleKey.A || input.Key == ConsoleKey.LeftArrow)
                 {
                     if (ConsoleHost.left - 1 >= 0)
                     {
@@ -85,17 +82,16 @@ namespace task2
                         Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
-                if (input.Key == ConsoleKey.D)
+                else if (input.Key == ConsoleKey.D || input.Key == ConsoleKey.RightArrow)
                 {
                     if (ConsoleHost.left + 8 < Console.WindowWidth)
                     {
-                        ConsoleHost.left ++;
+                        ConsoleHost.left++;
                         Console.Clear();
                         Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
             }
-          
         }
     }
 }

@@ -9,6 +9,5 @@ namespace task2.Interfaces
     interface IChangeColor
     {
         void ChangeColor(string inputColor);
-
     }
 }
