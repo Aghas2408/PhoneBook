@@ -8,6 +8,6 @@ namespace task2.Interfaces
 {
     interface IMovable
     {
-        void move();
+        void Move();
     }
 }

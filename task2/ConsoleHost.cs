@@ -9,37 +9,39 @@ namespace task2
    
     public static class ConsoleHost
     {
-        public static int left = Console.WindowWidth / 2 - 5;
-        public static int top  = Console.WindowHeight / 2 - 5;
+        const int FromCenterToLeft = 5;
+        const int FromCenterToTop = 5;
+        public static int left = Console.WindowWidth / 2 - FromCenterToLeft;
+        public static int top  = Console.WindowHeight / 2 - FromCenterToTop;
+       
         public static void Run()
         {
-          
+            const string  ShapeName = "rectangle";
             Console.WriteLine("Hello, What shape do you want to Draw");
             var input = Console.ReadLine();
             if (Validator.validateFirstInput(input))
             {
-                
-                Console.WriteLine("What Color do you like to use for shape ?");
-                Console.WriteLine("You can choose one of these");
-                Console.WriteLine(" White, Blue, Red, Green, Azure, Gray, Gold, Lime, Olive, Orange, Purple, Silver");
+
+                Colors.DisplayColors();
                 var inputColor = Console.ReadLine();
                 if (Validator.validateColorInput(inputColor))
                 {
                     Console.Clear();
-                    Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), inputColor, true);
-                    if (input.ToLower() == "rectangle")
+                    ChangeConsoleColor obj = new ChangeConsoleColor();
+                    obj.ChangeColor(inputColor);
+                    if (input.ToLower() == ShapeName)
                     {
                         Rectangle ob = new Rectangle();
-                        ob.drawRectangle(left,top);
-                        ob.moveRectangle();
+                        ob.Draw(left,top);
+                        ob.Move();
                     }
                     else
                     {
-                        left += 5;
-                        top += 5;
+                        left += FromCenterToLeft;
+                        top += FromCenterToTop;
                         Triangle ob = new Triangle();
-                        ob.drawTriangle(left, top);
-                        ob.moveTriangle();
+                        ob.Draw(left, top);
+                        ob.Move();
                     }
 
 

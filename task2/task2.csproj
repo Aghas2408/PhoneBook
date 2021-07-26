@@ -43,13 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeConsoleColor.cs" />
+    <Compile Include="Colors.cs" />
     <Compile Include="ConsoleHost.cs" />
+    <Compile Include="Interfaces\IChangeColor.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
-    <Compile Include="Interfaces\IMovableRectangle.cs" />
-    <Compile Include="Interfaces\IMovableTriangle.cs" />
-    <Compile Include="Interfaces\IRectangle.cs" />
     <Compile Include="Interfaces\IShape.cs" />
-    <Compile Include="Interfaces\ITriangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />

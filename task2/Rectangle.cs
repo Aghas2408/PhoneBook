@@ -7,18 +7,24 @@ using task2.Interfaces;
 
 namespace task2
 {
-    class Rectangle : IRectangle, IMovableRectangle 
+    class Rectangle : IShape, IMovable
     {
-        public void drawRectangle(int w, int h)
+        const string FirstCorner = "╔";
+        const string SecondCorner = "╗";
+        const string ThirdCorner = "╚";
+        const string FourthCorner = "╝";
+        const string HorizontalElement = "=";
+        const string VerticalElement = "║";
+        public void Draw(int w, int h)
         {
             Console.SetCursorPosition(w,h);
-            string s = "╔";
+            string s = FirstCorner;
             string space = "";
             string first_space = "";
             for (int i = 0; i < 5; i++)
             {
                 space += " ";
-                s += "═";
+                s += HorizontalElement;
             }
 
             for (int i = 0; i <w; i++)
@@ -28,16 +34,16 @@ namespace task2
 
             }
          
-            s += "╗" + "\n";
+            s += SecondCorner + "\n";
 
             for (int i = 0; i < 5; i++)
-                s += first_space + "║" + space + "║" + "\n";
+                s += first_space +VerticalElement + space + VerticalElement + "\n";
 
-            s +=  first_space + "╚";
+            s +=  first_space + ThirdCorner;
             for (int i = 0; i < 5; i++)
                 s += "═";
 
-            s += "╝" + "\n";
+            s += FourthCorner + "\n";
 
 
             Console.Write(s);
@@ -45,7 +51,7 @@ namespace task2
 
         }
 
-        public void moveRectangle()
+        public void Move()
         {
             while (true)
             {
@@ -57,7 +63,7 @@ namespace task2
                     {
                         ConsoleHost.top -= 1;
                         Console.Clear();
-                        drawRectangle(ConsoleHost.left, ConsoleHost.top);
+                        Draw(ConsoleHost.left, ConsoleHost.top);
                     }
 
                 }
@@ -67,7 +73,7 @@ namespace task2
                     {
                         ConsoleHost.top++;
                         Console.Clear();
-                        drawRectangle(ConsoleHost.left, ConsoleHost.top);
+                        Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
                 if (input.Key == ConsoleKey.A)
@@ -76,7 +82,7 @@ namespace task2
                     {
                         ConsoleHost.left--;
                         Console.Clear();
-                        drawRectangle(ConsoleHost.left, ConsoleHost.top);
+                        Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
                 if (input.Key == ConsoleKey.D)
@@ -85,7 +91,7 @@ namespace task2
                     {
                         ConsoleHost.left ++;
                         Console.Clear();
-                        drawRectangle(ConsoleHost.left, ConsoleHost.top);
+                        Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
             }

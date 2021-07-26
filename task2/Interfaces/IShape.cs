@@ -8,6 +8,6 @@ namespace task2
 {
  interface IShape
     {
-       void draw();
+       void Draw(int i, int j);
     }
 }

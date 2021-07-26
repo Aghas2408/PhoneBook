@@ -7,9 +7,9 @@ using task2.Interfaces;
 
 namespace task2
 {
-    class Triangle : ITriangle, IMovableTriangle
+    class Triangle : IShape, IMovable
 	{
-        public void drawTriangle(int w, int h)
+        public void Draw(int w, int h)
         {
 			Console.SetCursorPosition(w, h);
 			for (int i = 0; i < 10; i++)
@@ -26,7 +26,7 @@ namespace task2
 
 		}
 
-        public void moveTriangle()
+        public void Move()
         {
             while (true)
             {
@@ -38,7 +38,7 @@ namespace task2
                     {
                         ConsoleHost.top -= 1;
                         Console.Clear();
-                        drawTriangle(ConsoleHost.left, ConsoleHost.top);
+                        Draw(ConsoleHost.left, ConsoleHost.top);
                     }
 
                 }
@@ -48,7 +48,7 @@ namespace task2
                     {
                         ConsoleHost.top += 1;
                         Console.Clear();
-                        drawTriangle(ConsoleHost.left, ConsoleHost.top);
+                        Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
                 if (input.Key == ConsoleKey.A)
@@ -57,7 +57,7 @@ namespace task2
                     {
                         ConsoleHost.left -= 1;
                         Console.Clear();
-                        drawTriangle(ConsoleHost.left, ConsoleHost.top);
+                        Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
                 if (input.Key == ConsoleKey.D)
@@ -66,7 +66,7 @@ namespace task2
                     {
                         ConsoleHost.left += 1;
                         Console.Clear();
-                        drawTriangle(ConsoleHost.left, ConsoleHost.top);
+                        Draw(ConsoleHost.left, ConsoleHost.top);
                     }
                 }
             }

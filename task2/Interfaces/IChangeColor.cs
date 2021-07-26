@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task2
+namespace task2.Interfaces
 {
-    interface ITriangle
+    interface IChangeColor
     {
-        void drawTriangle(int i, int j);
+        void ChangeColor(string inputColor);
+
     }
 }
