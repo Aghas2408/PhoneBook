@@ -12,7 +12,7 @@ namespace task2
         private const int FromCenterToTop = 5;
         public static int left = Console.WindowWidth / 2 - FromCenterToLeft;
         public static int top = Console.WindowHeight / 2 - FromCenterToTop;
-        public static IShape[] shapes = new IShape[] { new Rectangle(), new Triangle() };
+        public static Shape[] shapes = new Shape[] { new Rectangle(), new Triangle() };
         public static void Run()
         {
             Console.WriteLine("Hello, What shape do you want to Draw");
@@ -30,11 +30,11 @@ namespace task2
                     {
                         if (i.ShapeName == input)
                         {
-                           i.Draw(left, top);
-                           i.Move();
-                           break;
+                            i.Draw(left, top);
+                            i.Move();
+                            break;
                         }
-                           
+
                     }
                 }
                 else

@@ -7,74 +7,45 @@ using task2.Interfaces;
 
 namespace task2
 {
-    public class Triangle : IShape
+    public class Triangle : Shape
     {
         private const int TriangleSize = 10;
         private const int MinDistanceFromRightSide = 10;
         private string shapeName = "triangle";
-        public string ShapeName
+        public override string ShapeName
         {
             get
             {
                 return shapeName;
             }
         }
-        public  void Draw(int w, int h)
+        public override void Draw(int w, int h)
         {
-            Console.SetCursorPosition(w, h);
-            for (int i = 0; i < TriangleSize; i++)
+            bool draw_top = false;
+            bool draw_left = false;
+            if (ConsoleHost.top - 1 >= 0 && ConsoleHost.top + 1 <= Console.WindowHeight)
             {
-                for (int j = 0; j < (w - i); j++)
-                {
-                    Console.Write(" ");
-                }   
-                for (int k = 1; k < i * 2; k++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine();
+                draw_top = true;
             }
-        }
-        public  void Move()
-        {
-            while (true)
+            if (ConsoleHost.left - 1 >= 0 && ConsoleHost.left + MinDistanceFromRightSide < Console.WindowWidth)
             {
-                var input = Console.ReadKey();
-                if (input.Key == ConsoleKey.W || input.Key == ConsoleKey.UpArrow)
+                draw_left = true;
+            }
+            if (draw_top && draw_left)
+            {
+                Console.Clear();
+                Console.SetCursorPosition(w, h);
+                for (int i = 0; i < TriangleSize; i++)
                 {
-                    if (ConsoleHost.top - 1 >= 0)
+                    for (int j = 0; j < (w - i); j++)
                     {
-                        ConsoleHost.top -= 1;
-                        Console.Clear();
-                        Draw(ConsoleHost.left, ConsoleHost.top);
+                        Console.Write(" ");
                     }
-                }
-                else if (input.Key == ConsoleKey.S || input.Key == ConsoleKey.DownArrow)
-                {
-                    if (ConsoleHost.top + 1 <= Console.WindowHeight)
+                    for (int k = 1; k < i * 2; k++)
                     {
-                        ConsoleHost.top += 1;
-                        Console.Clear();
-                        Draw(ConsoleHost.left, ConsoleHost.top);
+                        Console.Write("*");
                     }
-                }
-                else if (input.Key == ConsoleKey.A || input.Key == ConsoleKey.LeftArrow)
-                {
-                    if (ConsoleHost.left - MinDistanceFromRightSide >= 0)
-                    {
-                        ConsoleHost.left -= 1;
-                        Console.Clear();
-                        Draw(ConsoleHost.left, ConsoleHost.top);
-                    }
-                }
-                else if (input.Key == ConsoleKey.D || input.Key == ConsoleKey.RightArrow)
-                {
-                    if (ConsoleHost.left + MinDistanceFromRightSide < Console.WindowWidth)
-                    {
-                        ConsoleHost.left += 1;
-                        Console.Clear();
-                        Draw(ConsoleHost.left, ConsoleHost.top);
-                    }
+                    Console.WriteLine();
                 }
             }
         }

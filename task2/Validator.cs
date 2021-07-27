@@ -10,10 +10,12 @@ namespace task2
     {
         public static bool ValidateFirstInput(string s)
         {
-            foreach(var i in ConsoleHost.shapes)
+            foreach (var i in ConsoleHost.shapes)
             {
                 if (i.ShapeName == s)
-                    return true;
+                {
+
+                }
             }
             return false;
         }

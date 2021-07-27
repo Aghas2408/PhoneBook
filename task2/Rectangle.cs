@@ -7,7 +7,7 @@ using task2.Interfaces;
 
 namespace task2
 {
-    public class Rectangle : IShape
+    public class Rectangle : Shape
     {
         private const string FirstCorner = "╔";
         private const string SecondCorner = "╗";
@@ -18,83 +18,55 @@ namespace task2
         private const int RectangleSideSize = 5;
         private const int MinDistanceFromRightSide = 8;
         private string shapeName = "rectangle";
-        public string ShapeName
+        public override string ShapeName
         {
             get
             {
                 return shapeName;
             }
         }
-        public  void Draw(int w, int h)
+        public override void Draw(int w, int h)
         {
-            Console.SetCursorPosition(w, h);
-            string s = FirstCorner;
-            string space = "";
-            string first_space = "";
-            for (int i = 0; i < RectangleSideSize; i++)
+            bool draw_top = false;
+            bool draw_left = false;
+            if (ConsoleHost.top - 1 >= 0 && ConsoleHost.top + 1 <= Console.WindowHeight)
             {
-                space += " ";
-                s += HorizontalElement;
+                draw_top = true;
             }
-            for (int i = 0; i < w; i++)
+            if (ConsoleHost.left - 1 >= 0 && ConsoleHost.left + MinDistanceFromRightSide < Console.WindowWidth)
             {
-                first_space += " ";
+                draw_left = true;
             }
-            s += SecondCorner + "\n";
-            for (int i = 0; i < RectangleSideSize; i++)
+            if (draw_top && draw_left)
             {
-                s += first_space + VerticalElement + space + VerticalElement + "\n";
-            }
-            s += first_space + ThirdCorner;
-            for (int i = 0; i < RectangleSideSize; i++)
-            {
-                s += HorizontalElement;
-            }
-            s += FourthCorner + "\n";
-            Console.Write(s);
-        }
-        public void Move()
-        {
-            while (true)
-            {
-                var input = Console.ReadKey();
-                if (input.Key == ConsoleKey.W || input.Key == ConsoleKey.UpArrow)
+                Console.Clear();
+                Console.SetCursorPosition(w, h);
+                string s = FirstCorner;
+                string space = "";
+                string first_space = "";
+                for (int i = 0; i < RectangleSideSize; i++)
                 {
-                    if (ConsoleHost.top - 1 >= 0)
-                    {
-                        ConsoleHost.top--;
-                        Console.Clear();
-                        Draw(ConsoleHost.left, ConsoleHost.top);
-                    }
+                    space += " ";
+                    s += HorizontalElement;
                 }
-                else if (input.Key == ConsoleKey.S || input.Key == ConsoleKey.DownArrow)
+                for (int i = 0; i < w; i++)
                 {
-                    if (ConsoleHost.top + 1 <= Console.WindowHeight)
-                    {
-                        ConsoleHost.top++;
-                        Console.Clear();
-                        Draw(ConsoleHost.left, ConsoleHost.top);
-                    }
+                    first_space += " ";
                 }
-                else if (input.Key == ConsoleKey.A || input.Key == ConsoleKey.LeftArrow)
+                s += SecondCorner + "\n";
+                for (int i = 0; i < RectangleSideSize; i++)
                 {
-                    if (ConsoleHost.left - 1 >= 0)
-                    {
-                        ConsoleHost.left--;
-                        Console.Clear();
-                        Draw(ConsoleHost.left, ConsoleHost.top);
-                    }
+                    s += first_space + VerticalElement + space + VerticalElement + "\n";
                 }
-                else if (input.Key == ConsoleKey.D || input.Key == ConsoleKey.RightArrow)
+                s += first_space + ThirdCorner;
+                for (int i = 0; i < RectangleSideSize; i++)
                 {
-                    if (ConsoleHost.left + MinDistanceFromRightSide < Console.WindowWidth)
-                    {
-                        ConsoleHost.left++;
-                        Console.Clear();
-                        Draw(ConsoleHost.left, ConsoleHost.top);
-                    }
+                    s += HorizontalElement;
                 }
+                s += FourthCorner + "\n";
+                Console.Write(s);
             }
+
         }
     }
 }

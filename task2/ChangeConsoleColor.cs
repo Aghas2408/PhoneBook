@@ -12,7 +12,7 @@ namespace task2
         ConsoleColor col;
         public void ChangeColor(string inputColor)
         {
-            if(Enum.TryParse(inputColor, true,out col))
+            if (Enum.TryParse(inputColor, true, out col))
             {
                 if (Enum.IsDefined(typeof(ConsoleColor), col))
                 {

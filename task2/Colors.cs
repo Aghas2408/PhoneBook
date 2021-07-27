@@ -23,7 +23,6 @@ namespace task2
             "Purple",
             "Silver"
         };
-
         public static void DisplayColors()
         {
             Console.WriteLine("What Color do you like to use for shape ?");
