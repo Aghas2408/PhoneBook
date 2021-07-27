@@ -9,15 +9,11 @@ namespace task2
 {
     public class ChangeConsoleColor : IChangeColor
     {
-        ConsoleColor col;
         public void ChangeColor(string inputColor)
         {
-            if (Enum.TryParse(inputColor, true, out col))
+            if (Enum.TryParse<ConsoleColor>(inputColor, true, out ConsoleColor col))
             {
-                if (Enum.IsDefined(typeof(ConsoleColor), col))
-                {
-                    Console.ForegroundColor = col;
-                }
+                Console.ForegroundColor = col;
             }
         }
     }

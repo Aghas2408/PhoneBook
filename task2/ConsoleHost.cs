@@ -27,16 +27,9 @@ namespace task2
                     Console.Clear();
                     ChangeConsoleColor colorChange = new ChangeConsoleColor();
                     colorChange.ChangeColor(inputColor);
-                    foreach (var i in shapes)
-                    {
-                        if (i.ShapeName == input)
-                        {
-                            i.Draw(left, top);
-                            i.Move();
-                            break;
-                        }
-
-                    }
+                    var shape = shapes.Where(i => i.ShapeName == input).FirstOrDefault();
+                    shape.Draw(left, top);
+                    shape.Move();
                 }
                 else
                 {
