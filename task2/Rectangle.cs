@@ -9,10 +9,10 @@ namespace task2
 {
     public class Rectangle : Shape
     {
-        private const string FirstCorner = "╔";
-        private const string SecondCorner = "╗";
-        private const string ThirdCorner = "╚";
-        private const string FourthCorner = "╝";
+        private const string TopLeft = "╔";
+        private const string TopRight = "╗";
+        private const string BotLeft = "╚";
+        private const string BotRight = "╝";
         private const string HorizontalElement = "═";
         private const string VerticalElement = "║";
         private const int RectangleSideSize = 5;
@@ -37,7 +37,7 @@ namespace task2
             {
                 Console.Clear();
                 Console.SetCursorPosition(w, h);
-                string s = FirstCorner;
+                string s = TopLeft;
                 string space = "";
                 string first_space = "";
                 for (int i = 0; i < RectangleSideSize; i++)
@@ -49,20 +49,19 @@ namespace task2
                 {
                     first_space += " ";
                 }
-                s += SecondCorner + "\n";
+                s += TopRight + "\n";
                 for (int i = 0; i < RectangleSideSize; i++)
                 {
                     s += first_space + VerticalElement + space + VerticalElement + "\n";
                 }
-                s += first_space + ThirdCorner;
+                s += first_space + BotLeft;
                 for (int i = 0; i < RectangleSideSize; i++)
                 {
                     s += HorizontalElement;
                 }
-                s += FourthCorner + "\n";
+                s += BotRight + "\n";
                 Console.Write(s);
             }
-
         }
     }
 }

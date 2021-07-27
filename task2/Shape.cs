@@ -8,10 +8,9 @@ namespace task2
 {
     public abstract class Shape : IDraw
     {
-        public virtual string ShapeName { get; }
-        public virtual void Draw(int i, int j)
-        {
-        }
+        public abstract  string ShapeName { get; }
+        public abstract void Draw(int i, int j);
+
         public void Move()
         {
             while (true)
@@ -39,6 +38,5 @@ namespace task2
                 }
             }
         }
-
     }
 }
