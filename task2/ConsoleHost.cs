@@ -17,8 +17,8 @@ namespace task2
         public static void Run()
         {
             Console.WriteLine("Hello, What shape do you want to Draw");
-            var input = Console.ReadLine();
-            if (Validator.ValidateFirstInput(input))
+            var shapeType = Console.ReadLine();
+            if (Validator.ValidateFirstInput(shapeType))
             {
                 Colors.DisplayColors();
                 var inputColor = Console.ReadLine();
@@ -27,7 +27,7 @@ namespace task2
                     Console.Clear();
                     ChangeConsoleColor colorChange = new ChangeConsoleColor();
                     colorChange.ChangeColor(inputColor);
-                    var shape = shapes.Where(i => i.ShapeName == input).FirstOrDefault();
+                    var shape = shapes.Where(i => i.ShapeName == shapeType).FirstOrDefault();
                     shape.Draw(left, top);
                     shape.Move();
                 }

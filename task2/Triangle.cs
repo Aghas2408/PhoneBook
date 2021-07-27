@@ -15,7 +15,7 @@ namespace task2
 
         public override string ShapeName => shapeName;
 
-        public override void Draw(int w, int h)
+        public override void Draw(int x, int y)
         {
             bool draw_top = false;
             bool draw_left = false;
@@ -30,10 +30,10 @@ namespace task2
             if (draw_top && draw_left)
             {
                 Console.Clear();
-                Console.SetCursorPosition(w, h);
+                Console.SetCursorPosition(x, y);
                 for (int i = 0; i < TriangleSize; i++)
                 {
-                    for (int j = 0; j < (w - i); j++)
+                    for (int j = 0; j < (x - i); j++)
                     {
                         Console.Write(" ");
                     }

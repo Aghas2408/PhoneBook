@@ -8,6 +8,6 @@ namespace task2
 {
     public interface IDraw
     {
-        void Draw(int i, int j);
+        void Draw(int x, int y);
     }
 }

@@ -21,7 +21,7 @@ namespace task2
 
         public override string ShapeName => shapeName;
 
-        public override void Draw(int w, int h)
+        public override void Draw(int x, int y)
         {
             bool draw_top = false;
             bool draw_left = false;
@@ -36,7 +36,7 @@ namespace task2
             if (draw_top && draw_left)
             {
                 Console.Clear();
-                Console.SetCursorPosition(w, h);
+                Console.SetCursorPosition(x, y);
                 string s = TopLeft;
                 string space = "";
                 string first_space = "";
@@ -45,7 +45,7 @@ namespace task2
                     space += " ";
                     s += HorizontalElement;
                 }
-                for (int i = 0; i < w; i++)
+                for (int i = 0; i < x; i++)
                 {
                     first_space += " ";
                 }

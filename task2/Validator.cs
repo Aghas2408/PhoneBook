@@ -10,8 +10,7 @@ namespace task2
     {
         public static bool ValidateFirstInput(string s)
         {
-            var shapename = ConsoleHost.shapes.Where(i => i.ShapeName == s).FirstOrDefault();
-            return shapename != null;
+            return  ConsoleHost.shapes.Where(i => i.ShapeName == s).Any();         
         }
 
         public static bool ValidateColorInput(string s)

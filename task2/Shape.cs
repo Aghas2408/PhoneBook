@@ -9,7 +9,7 @@ namespace task2
     public abstract class Shape : IDraw
     {
         public abstract  string ShapeName { get; }
-        public abstract void Draw(int i, int j);
+        public abstract void Draw(int x, int y);
 
         public void Move()
         {
