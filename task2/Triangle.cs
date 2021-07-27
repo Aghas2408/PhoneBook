@@ -12,13 +12,9 @@ namespace task2
         private const int TriangleSize = 10;
         private const int MinDistanceFromRightSide = 10;
         private string shapeName = "triangle";
-        public override string ShapeName
-        {
-            get
-            {
-                return shapeName;
-            }
-        }
+
+        public override string ShapeName => shapeName;
+
         public override void Draw(int w, int h)
         {
             bool draw_top = false;

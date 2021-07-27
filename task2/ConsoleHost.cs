@@ -13,6 +13,7 @@ namespace task2
         public static int left = Console.WindowWidth / 2 - FromCenterToLeft;
         public static int top = Console.WindowHeight / 2 - FromCenterToTop;
         public static Shape[] shapes = new Shape[] { new Rectangle(), new Triangle() };
+
         public static void Run()
         {
             Console.WriteLine("Hello, What shape do you want to Draw");
@@ -24,8 +25,8 @@ namespace task2
                 if (Validator.ValidateColorInput(inputColor))
                 {
                     Console.Clear();
-                    ChangeConsoleColor obj = new ChangeConsoleColor();
-                    obj.ChangeColor(inputColor);
+                    ChangeConsoleColor colorChange = new ChangeConsoleColor();
+                    colorChange.ChangeColor(inputColor);
                     foreach (var i in shapes)
                     {
                         if (i.ShapeName == input)

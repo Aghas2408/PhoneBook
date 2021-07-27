@@ -18,13 +18,9 @@ namespace task2
         private const int RectangleSideSize = 5;
         private const int MinDistanceFromRightSide = 8;
         private string shapeName = "rectangle";
-        public override string ShapeName
-        {
-            get
-            {
-                return shapeName;
-            }
-        }
+
+        public override string ShapeName => shapeName;
+
         public override void Draw(int w, int h)
         {
             bool draw_top = false;

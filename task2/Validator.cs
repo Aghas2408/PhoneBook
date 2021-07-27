@@ -14,11 +14,12 @@ namespace task2
             {
                 if (i.ShapeName == s)
                 {
-
+                    return true;
                 }
             }
             return false;
         }
+
         public static bool ValidateColorInput(string s)
         {
             return Colors.drawColors.Contains(s);
