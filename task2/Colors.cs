@@ -30,7 +30,7 @@ namespace task2
             Console.WriteLine("You can choose one of these");
             foreach (string s in drawColors)
             {
-                Console.Write(s + " ");
+                Console.Write(s + ", ");
             }
             Console.WriteLine();
         }

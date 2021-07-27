@@ -8,14 +8,14 @@ namespace task2
 {
     static class Validator
     {
-        public static List<string> shapes = new List<string>()
-        {
-            "rectangle",
-            "triangle",
-        };
         public static bool ValidateFirstInput(string s)
         {
-            return shapes.Contains(s.ToLower());
+            foreach(var i in ConsoleHost.shapes)
+            {
+                if (i.ShapeName == s)
+                    return true;
+            }
+            return false;
         }
         public static bool ValidateColorInput(string s)
         {

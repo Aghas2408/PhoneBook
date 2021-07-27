@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace task2.Interfaces
 {
-    interface IMovable
+    public interface IMovable
     {
         void Move();
     }

@@ -7,7 +7,7 @@ using task2.Interfaces;
 
 namespace task2
 {
-    public class Rectangle : Shape
+    public class Rectangle : IShape
     {
         private const string FirstCorner = "╔";
         private const string SecondCorner = "╗";
@@ -16,8 +16,16 @@ namespace task2
         private const string HorizontalElement = "═";
         private const string VerticalElement = "║";
         private const int RectangleSideSize = 5;
-        private const int MinDistanceFromRightSide = 7;
-        public override void Draw(int w, int h)
+        private const int MinDistanceFromRightSide = 8;
+        private string shapeName = "rectangle";
+        public string ShapeName
+        {
+            get
+            {
+                return shapeName;
+            }
+        }
+        public  void Draw(int w, int h)
         {
             Console.SetCursorPosition(w, h);
             string s = FirstCorner;
@@ -45,8 +53,7 @@ namespace task2
             s += FourthCorner + "\n";
             Console.Write(s);
         }
-
-        public override void Move()
+        public void Move()
         {
             while (true)
             {

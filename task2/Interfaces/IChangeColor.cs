@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace task2.Interfaces
 {
-    interface IChangeColor
+    public interface IChangeColor
     {
         void ChangeColor(string inputColor);
     }

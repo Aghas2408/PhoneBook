@@ -7,23 +7,35 @@ using task2.Interfaces;
 
 namespace task2
 {
-    public class Triangle : Shape
+    public class Triangle : IShape
     {
         private const int TriangleSize = 10;
         private const int MinDistanceFromRightSide = 10;
-        public override void Draw(int w, int h)
+        private string shapeName = "triangle";
+        public string ShapeName
+        {
+            get
+            {
+                return shapeName;
+            }
+        }
+        public  void Draw(int w, int h)
         {
             Console.SetCursorPosition(w, h);
             for (int i = 0; i < TriangleSize; i++)
             {
                 for (int j = 0; j < (w - i); j++)
+                {
                     Console.Write(" ");
+                }   
                 for (int k = 1; k < i * 2; k++)
+                {
                     Console.Write("*");
+                }
                 Console.WriteLine();
             }
         }
-        public override void Move()
+        public  void Move()
         {
             while (true)
             {

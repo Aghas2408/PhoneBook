@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using task2.Interfaces;
 
 namespace task2
 {
-    public interface IShape : IMovable, IDraw
+    public interface IDraw
     {
-        string ShapeName { get; }
+        void Draw(int i, int j);
     }
 }
