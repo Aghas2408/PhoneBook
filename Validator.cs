@@ -14,7 +14,7 @@ namespace PhoneBook
             Console.WriteLine();
             Console.WriteLine("Validations:");
             var j = 1;
-            foreach (var item in ConsoleHost.contacts)
+            foreach (var item in PhoneBook.contacts)
             {
                 bool contactContainErrors = false;
                 StringBuilder s = new StringBuilder("Line:" + j);

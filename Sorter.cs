@@ -10,7 +10,7 @@ namespace PhoneBook
     {
         public static void SortPhoneBook(SortType del)
         {
-            MergeSort(ConsoleHost.contacts, 0, ConsoleHost.contacts.Length - 1, del);
+            MergeSort(PhoneBook.contacts, 0, PhoneBook.contacts.Length - 1, del);
         }
 
         public static bool AscendingSortByName(Contact cont1, Contact cont2)

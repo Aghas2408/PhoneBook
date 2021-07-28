@@ -6,17 +6,19 @@ namespace PhoneBook
 {
     public static class Converter
     {
-        private static int LineLengthWhenSurNameEmpty = 5;
+        private static readonly int LineLengthWhenLineEmpty = 1;
+        private static readonly int LineLengthWhenSurNameEmpty = 5;
+        private static readonly int LineLengthWhenSurNameNotEmpty = 4;
 
         public static Contact[] LinesToContacts(string[] arr)
         {
-            var contactsArray = new Contact[ConsoleHost.contacsArrayLength];
+            var contactsArray = new Contact[PhoneBook.contacsArrayLength];
             for (int i = 0; i < contactsArray.Length; i++)
             {
                 Contact obj = new Contact();
                 var splitedLine = arr[i].Split(' ');
                 int j = 0;
-                if (splitedLine.Length == 1)
+                if (splitedLine.Length == LineLengthWhenLineEmpty)
                 {
                     continue;
                 }
@@ -28,7 +30,7 @@ namespace PhoneBook
                     obj.Seperator = splitedLine[j++];
                     obj.Phone = splitedLine[j];
                 }
-                else if (splitedLine.Length == 4)
+                else if (splitedLine.Length == LineLengthWhenSurNameNotEmpty)
                 {
                     obj.Name = splitedLine[j++];
                     obj.SurName = splitedLine[j++];
