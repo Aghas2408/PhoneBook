@@ -8,9 +8,9 @@ namespace PhoneBook
 
     public static class Sorter
     {
-        public static void SortPhoneBook(SortType del)
+        public static void SortPhoneBook(PhoneBook phoneBook, SortType del)
         {
-            MergeSort(PhoneBook.contacts, 0, PhoneBook.contacts.Length - 1, del);
+            MergeSort(phoneBook.contacts, 0, phoneBook.contacts.Length - 1, del);
         }
 
         public static bool AscendingSortByName(Contact cont1, Contact cont2)

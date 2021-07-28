@@ -9,12 +9,12 @@ namespace PhoneBook
         public const int PhoneMaxLength = 9;
         public static readonly string[] Seperators = { ":", "-" };
 
-        public static void ValidatePhoneBook()
+        public static void ValidatePhoneBook(PhoneBook phoneBook)
         {
             Console.WriteLine();
             Console.WriteLine("Validations:");
             var j = 1;
-            foreach (var item in PhoneBook.contacts)
+            foreach (var item in phoneBook.contacts)
             {
                 bool contactContainErrors = false;
                 StringBuilder s = new StringBuilder("Line:" + j);

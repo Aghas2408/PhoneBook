@@ -4,9 +4,9 @@ using System.Text;
 
 namespace PhoneBook
 {
-    public static class PhoneBook
+    public  class PhoneBook
     {
-        public static Contact[] contacts;
-        public static int contacsArrayLength;
+        public  Contact[] contacts;
+        public  int contactsArrayLength;
     }
 }

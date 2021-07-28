@@ -10,9 +10,9 @@ namespace PhoneBook
         private static readonly int LineLengthWhenSurNameEmpty = 5;
         private static readonly int LineLengthWhenSurNameNotEmpty = 4;
 
-        public static Contact[] LinesToContacts(string[] arr)
+        public static Contact[] LinesToContacts(int contactsArrayLength, string[] arr)
         {
-            var contactsArray = new Contact[PhoneBook.contacsArrayLength];
+            var contactsArray = new Contact[contactsArrayLength];
             for (int i = 0; i < contactsArray.Length; i++)
             {
                 Contact obj = new Contact();

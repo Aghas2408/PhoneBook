@@ -6,9 +6,9 @@ namespace PhoneBook
 {
     public static class Shower
     {
-        public static void ShowPhoneBook()
+        public static void ShowPhoneBook(PhoneBook phoneBook)
         {
-            foreach (var item in PhoneBook.contacts)
+            foreach (var item in phoneBook.contacts)
             {
                 Console.WriteLine(item);
             }
