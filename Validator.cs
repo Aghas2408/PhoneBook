@@ -6,26 +6,29 @@ namespace PhoneBook
 {
     public static class Validator
     {
+        public const int PhoneMaxLength = 9;
+        public static readonly string[] Seperators = { ":", "-" };
+
         public static void ValidatePhoneBook()
         {
             Console.WriteLine();
             Console.WriteLine("Validations:");
-            var j = 0;
+            var j = 1;
             foreach (var item in ConsoleHost.contacts)
             {
-                bool canOutput = false;
-                string s = "Line:" + (j + 1).ToString();
-                if (item.Phone.Length != 9)
+                bool contactContainErrors = false;
+                StringBuilder s = new StringBuilder("Line:" + j);
+                if (item.Phone.Length != PhoneMaxLength)
                 {
-                    s += " Phone number should be with 9 Digits.";
-                    canOutput = true;
+                    s.Append(" Phone number should be with 9 Digits.");
+                    contactContainErrors = true;
                 }
-                if (item.Seperator != ":" && item.Seperator != "-")
+                if (Array.Exists(Seperators, element => element == item.Seperator))
                 {
-                    s += " The separator should be `:` or `-`.";
-                    canOutput = true;
+                    s.Append(" The separator should be `:` or `-`.");
+                    contactContainErrors = true;
                 }
-                if (canOutput)
+                if (contactContainErrors)
                 {
                     Console.WriteLine(s);
                 }

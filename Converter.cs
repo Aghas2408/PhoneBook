@@ -6,8 +6,11 @@ namespace PhoneBook
 {
     public static class Converter
     {
-        public static void LinesToContacts(Contact[] contactsArray, string[] arr)
+        private static int LineLengthWhenSurNameEmpty = 5;
+
+        public static Contact[] LinesToContacts(string[] arr)
         {
+            var contactsArray = new Contact[ConsoleHost.contacsArrayLength];
             for (int i = 0; i < contactsArray.Length; i++)
             {
                 Contact obj = new Contact();
@@ -17,7 +20,7 @@ namespace PhoneBook
                 {
                     continue;
                 }
-                if (splitedLine.Length == 5)
+                if (splitedLine.Length == LineLengthWhenSurNameEmpty)
                 {
                     obj.Name = splitedLine[j++];
                     obj.SurName = splitedLine[j++];
@@ -25,7 +28,7 @@ namespace PhoneBook
                     obj.Seperator = splitedLine[j++];
                     obj.Phone = splitedLine[j];
                 }
-                else
+                else if (splitedLine.Length == 4)
                 {
                     obj.Name = splitedLine[j++];
                     obj.SurName = splitedLine[j++];
@@ -34,6 +37,7 @@ namespace PhoneBook
                 }
                 contactsArray[i] = obj;
             }
+            return contactsArray;
         }
     }
 }

@@ -40,50 +40,13 @@ namespace PhoneBook
 
         public static bool AscendingSortByPhone(Contact cont1, Contact cont2)
         {
-            if (string.Compare(cont1.Phone.Substring(0, 3), cont2.Phone.Substring(0, 3)) == 0 || string.Compare(cont1.Phone.Substring(0, 3), cont2.Phone.Substring(0, 3)) == -1) 
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public static bool DescendingSortByPhone(Contact cont1, Contact cont2)
-        {
             if (string.Compare(cont1.Phone.Substring(0, 3), cont2.Phone.Substring(0, 3)) == 0 || string.Compare(cont1.Phone.Substring(0, 3), cont2.Phone.Substring(0, 3)) == -1)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
-            }
-        }
-
-        public static bool DescendingSortBySurName(Contact cont1, Contact cont2)
-        {
-            if ((string.Compare(cont1.SurName, cont2.SurName) == 0 || string.Compare(cont1.SurName, cont2.SurName) == -1)  &&
-                (cont1.SurName != "" && cont2.SurName != ""))
-            {
                 return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        public static bool DescendingSortByName(Contact cont1, Contact cont2)
-        {
-            if (string.Compare(cont1.Name, cont2.Name) == 0 || string.Compare(cont1.Name, cont2.Name) == -1)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
             }
         }
 

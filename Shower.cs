@@ -10,7 +10,7 @@ namespace PhoneBook
         {
             foreach (var item in ConsoleHost.contacts)
             {
-                Console.WriteLine("{0} {1} {2} {3}",item.Name,item.SurName,item.Seperator,item.Phone);
+                Console.WriteLine("{0} {1} {2} {3}", item.Name, item.SurName, item.Seperator, item.Phone);
             }
         }
     }
