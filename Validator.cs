@@ -23,9 +23,12 @@ namespace PhoneBook
                     s.Append(" Phone number should be with 9 Digits.");
                     contactContainErrors = true;
                 }
-                if (Array.Exists(Seperators, element => element == item.Seperator))
+                if (!Array.Exists(Seperators, element => element == item.Seperator))
                 {
-                    s.Append(" The separator should be `:` or `-`.");
+                    for (var i = 0; i < Seperators.Length - 1; i++)
+                    {
+                        s.Append(" The separator should be '" + Seperators[i] + "' or '" + Seperators[i + 1] + "' .");
+                    }
                     contactContainErrors = true;
                 }
                 if (contactContainErrors)

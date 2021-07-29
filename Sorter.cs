@@ -8,11 +8,6 @@ namespace PhoneBook
 
     public static class Sorter
     {
-        public static void SortPhoneBook(PhoneBook phoneBook, SortType del)
-        {
-            MergeSort(phoneBook.contacts, 0, phoneBook.contacts.Length - 1, del);
-        }
-
         public static bool AscendingSortByName(Contact cont1, Contact cont2)
         {
             if (string.Compare(cont1.Name, cont2.Name) == 0 || string.Compare(cont1.Name, cont2.Name) == -1)

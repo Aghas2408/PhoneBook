@@ -20,7 +20,7 @@ namespace PhoneBook
                     string[] lines = File.ReadAllLines(pathName).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
                     PhoneBook phoneBook = new PhoneBook();
                     phoneBook.contactsArrayLength = lines.Length;
-                    phoneBook.contacts = new Contact[lines.Length];
+                    phoneBook.contacts = new Contact[phoneBook.contactsArrayLength];
                     phoneBook.contacts = Converter.LinesToContacts(phoneBook.contactsArrayLength, lines);
                     phoneBooksList.Add(phoneBook);
                 }
@@ -44,15 +44,15 @@ namespace PhoneBook
                 {
                     if (criteria.ToLower() == "name")
                     {
-                        Sorter.SortPhoneBook(phoneBook, Sorter.AscendingSortByName);
+                        PhoneBook.SortPhoneBook(phoneBook, Sorter.AscendingSortByName);
                     }
                     else if (criteria.ToLower() == "surname")
                     {
-                        Sorter.SortPhoneBook(phoneBook, Sorter.AscendingSortBySurName);
+                        PhoneBook.SortPhoneBook(phoneBook, Sorter.AscendingSortBySurName);
                     }
                     else if (criteria.ToLower() == "phonenumbercode")
                     {
-                        Sorter.SortPhoneBook(phoneBook, Sorter.AscendingSortByPhone);
+                        PhoneBook.SortPhoneBook(phoneBook, Sorter.AscendingSortByPhone);
                     }
                     else
                     {
@@ -63,15 +63,15 @@ namespace PhoneBook
                 {
                     if (criteria.ToLower() == "name")
                     {
-                        Sorter.SortPhoneBook(phoneBook, (contact1, contact2) => !Sorter.AscendingSortByName(contact1, contact2));
+                        PhoneBook.SortPhoneBook(phoneBook, (contact1, contact2) => !Sorter.AscendingSortByName(contact1, contact2));
                     }
                     else if (criteria.ToLower() == "surname")
                     {
-                        Sorter.SortPhoneBook(phoneBook, (contact1, contact2) => !Sorter.AscendingSortBySurName(contact1, contact2));
+                        PhoneBook.SortPhoneBook(phoneBook, (contact1, contact2) => !Sorter.AscendingSortBySurName(contact1, contact2));
                     }
                     else if (criteria.ToLower() == "phonenumbercode")
                     {
-                        Sorter.SortPhoneBook(phoneBook, (contact1, contact2) => !Sorter.AscendingSortByPhone(contact1, contact2));
+                        PhoneBook.SortPhoneBook(phoneBook, (contact1, contact2) => !Sorter.AscendingSortByPhone(contact1, contact2));
                     }
                     else
                     {
