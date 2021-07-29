@@ -25,9 +25,18 @@ namespace PhoneBook
                 }
                 if (!Array.Exists(Seperators, element => element == item.Seperator))
                 {
-                    for (var i = 0; i < Seperators.Length - 1; i++)
+                    s.Append(" The separator should be '");
+                    for (var i = 0; i < Seperators.Length; i++)
                     {
-                        s.Append(" The separator should be '" + Seperators[i] + "' or '" + Seperators[i + 1] + "' .");
+                        s.Append(Seperators[i]);
+                        if (i != Seperators.Length - 1)
+                        {
+                            s.Append("' or '");
+                        }
+                        else
+                        {
+                            s.Append("'.");
+                        }
                     }
                     contactContainErrors = true;
                 }
